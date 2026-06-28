@@ -120,6 +120,15 @@ incrémentale.
 > Sans lui, **pas d'archivage automatique** : il faudrait alors archiver à la main
 > (méthode 1.4).
 
+> 🧭 **Se repérer dans Thunderbird 140 (interface « Supernova ») :**
+> - Le menu **☰** est le bouton à **trois traits, en haut à droite** de la fenêtre.
+> - Pas de barre de menus visible ? Appuyer sur **Alt** pour l'afficher
+>   temporairement (**Fichier / Édition / Affichage / Outils…**), ou clic droit sur
+>   la barre d'outils → cocher **Barre de menus** pour la garder.
+> - Les **Modules complémentaires** s'ouvrent dans un **onglet** : colonne de gauche
+>   **Extensions**, puis chaque module a un bouton **« … »** (trois points) qui donne
+>   accès à **Options / Préférences**.
+
 **Étape 1 — installer le module `AutoarchiveReloaded` (une seule fois) :**
 1. Dans Thunderbird : **☰ → Modules complémentaires et thèmes**
    *(ou **Outils → Modules complémentaires**)*.
@@ -141,11 +150,25 @@ incrémentale.
 > d'auto-archivage équivalent **maintenu**, ou se rabattre sur la méthode manuelle (1.4).
 
 **Étape 2 — configurer le module :**
-5. **☰ → Modules complémentaires et thèmes** → **AutoarchiveReloaded** →
-   **Options / Préférences**.
+5. **☰ → Modules complémentaires et thèmes → Extensions** → sur la ligne
+   **AutoarchiveReloaded**, cliquer le bouton **« … » → Options / Préférences**
+   *(ou cliquer le nom du module puis l'onglet **Préférences**)*.
 6. Régler l'ancienneté : archiver les messages de plus de **90 / 180 / 365 jours**
    (au choix).
 7. Activer le **déclenchement au démarrage** de Thunderbird.
+
+**Étape 3 — lancer le module :**
+8. **Au démarrage de Thunderbird**, AutoarchiveReloaded s'exécute **tout seul** :
+   c'est son mode normal. Pour « le lancer », il suffit donc de **démarrer (ou
+   redémarrer) Thunderbird** une fois la configuration faite.
+9. **Pour l'exécuter à la demande** (sans attendre le prochain démarrage) : afficher
+   la barre de menus (**Alt**) → menu **Outils** → entrée **AutoarchiveReloaded**
+   *(p. ex. « Archiver maintenant »)*.
+   > Le libellé exact dépend de la version du module ; **s'il n'y a pas d'entrée de
+   > menu, un simple redémarrage de Thunderbird** déclenche l'archivage.
+10. **Vérifier que ça a marché** : sous **Dossiers locaux → Archives**, les
+    sous-dossiers **par année-mois** se remplissent et la boîte d'origine se vide des
+    messages au-delà du seuil.
 
 **Déploiement en parc (optionnel) :** pour **forcer** l'installation de
 `AutoarchiveReloaded` sur plusieurs postes d'un coup, utiliser
