@@ -1,0 +1,65 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Processus" id="proc">
+    <mxGraphModel dx="960" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="titre" value="Déroulé du processus" style="text;html=1;fontSize=18;fontStyle=1;fontColor=#000091;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="14" width="500" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="zoneA" value="A · Poste central « mail »  (par boîte)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5FE;strokeColor=#000091;dashed=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;fontColor=#000091;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="64" width="430" height="540" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Vérifier le téléchargement complet&#10;IMAP : sinon seuls les en-têtes sont archivés" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3E3FD;strokeColor=#000091;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="108" width="330" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="Archiver par année-mois (touche A)&#10;les messages quittent le serveur" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3E3FD;strokeColor=#000091;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="196" width="330" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="Fermer Thunderbird" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3E3FD;strokeColor=#000091;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="278" width="330" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="1-push-archives-vers-san.bat&#10;push de l'archive vers le SAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3E3FD;strokeColor=#000091;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="352" width="330" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="SAN : archive maître&#10;mois écoulé = fichier figé (immuable)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CACAFB;strokeColor=#000091;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="434" width="330" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="anote" value="Seul le mois courant change → synchros suivantes quasi instantanées" style="text;html=1;fontSize=12;fontColor=#18753C;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="525" width="370" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea1" style="html=1;endArrow=block;strokeColor=#000091;strokeWidth=2;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea2" style="html=1;endArrow=block;strokeColor=#000091;strokeWidth=2;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea3" style="html=1;endArrow=block;strokeColor=#000091;strokeWidth=2;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea4" style="html=1;endArrow=block;strokeColor=#000091;strokeWidth=2;" edge="1" parent="1" source="a4" target="a5"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="zoneB" value="B · Poste utilisateur  (automatique)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5FE;strokeColor=#18753C;dashed=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;fontColor=#18753C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="500" y="64" width="430" height="540" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="Tâche planifiée&#10;chaque jour + ouverture de session" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3FBE9;strokeColor=#18753C;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="108" width="330" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="2-sync-cache-local.bat&#10;robocopy /MIR (sans les index .msf)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3FBE9;strokeColor=#18753C;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="190" width="330" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="Passage en lecture seule&#10;attrib +R sur les fichiers d'archive" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3FBE9;strokeColor=#18753C;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="278" width="330" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="Thunderbird lit le cache local&#10;construit son propre index .msf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3FBE9;strokeColor=#18753C;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="360" width="330" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="Consultation en lecture seule&#10;aucun verrou entre postes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CACAFB;strokeColor=#000091;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="448" width="330" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="bnote" value="Redémarrer Thunderbird pour voir le mois le plus récent" style="text;html=1;fontSize=12;fontColor=#3a3a3a;fontStyle=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="540" y="525" width="350" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="eb1" style="html=1;endArrow=block;strokeColor=#18753C;strokeWidth=2;" edge="1" parent="1" source="b1" target="b2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eb2" style="html=1;endArrow=block;strokeColor=#18753C;strokeWidth=2;" edge="1" parent="1" source="b2" target="b3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eb3" style="html=1;endArrow=block;strokeColor=#18753C;strokeWidth=2;" edge="1" parent="1" source="b3" target="b4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eb4" style="html=1;endArrow=block;strokeColor=#18753C;strokeWidth=2;" edge="1" parent="1" source="b4" target="b5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="elink" value="via SAN" style="html=1;endArrow=block;strokeColor=#000091;strokeWidth=2.5;dashed=1;fontColor=#000091;fontStyle=1;fontSize=11;" edge="1" parent="1" source="a5" target="b5"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

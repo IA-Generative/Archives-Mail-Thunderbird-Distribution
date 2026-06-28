@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Architecture" id="arch">
+    <mxGraphModel dx="960" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="titre" value="Architecture d'ensemble — archives mail partagées" style="text;html=1;fontSize=18;fontStyle=1;fontColor=#000091;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="30" y="14" width="700" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="serveur" value="Serveur de messagerie&#10;Boîtes saturées&#10;jusqu'à 80 Go (cible 2,5 / 5 Go)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE9E9;strokeColor=#CE0500;strokeWidth=2;fontSize=13;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="270" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="central" value="Poste central « mail »&#10;Archivage par année-mois&#10;(fonction native Thunderbird)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3E3FD;strokeColor=#000091;strokeWidth=2;fontSize=13;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="640" y="70" width="280" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="san" value="SAN — Répertoire partagé&#10;Archive maître (source de vérité)&#10;lecture seule · jamais ouvert par Thunderbird" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CACAFB;strokeColor=#000091;strokeWidth=2.5;fontSize=13;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="350" y="250" width="300" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="u1" value="Poste utilisateur 1&#10;Cache local (lecture seule)&#10;Index .msf propre au poste&#10;Thunderbird lit SA copie" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3FBE9;strokeColor=#18753C;strokeWidth=2;fontSize=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="270" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="u2" value="Poste utilisateur 2&#10;Cache local (lecture seule)&#10;Index .msf propre au poste&#10;Thunderbird lit SA copie" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3FBE9;strokeColor=#18753C;strokeWidth=2;fontSize=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="345" y="440" width="270" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="u3" value="Poste utilisateur N&#10;Cache local (lecture seule)&#10;Index .msf propre au poste&#10;Thunderbird lit SA copie" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3FBE9;strokeColor=#18753C;strokeWidth=2;fontSize=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="650" y="440" width="270" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="1 · Télécharger en entier + Archiver (touche A)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000091;strokeWidth=2.5;endArrow=block;fontColor=#000091;fontSize=12;fontStyle=1;" edge="1" parent="1" source="serveur" target="central">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="2 · Push (robocopy)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000091;strokeWidth=2.5;endArrow=block;fontColor=#000091;fontSize=12;fontStyle=1;" edge="1" parent="1" source="central" target="san">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="3 · robocopy /MIR → cache local" style="edgeStyle=none;html=1;strokeColor=#000091;strokeWidth=2.5;endArrow=block;fontColor=#000091;fontSize=12;fontStyle=1;" edge="1" parent="1" source="san" target="u1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=none;html=1;strokeColor=#000091;strokeWidth=2.5;endArrow=block;" edge="1" parent="1" source="san" target="u2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=none;html=1;strokeColor=#000091;strokeWidth=2.5;endArrow=block;" edge="1" parent="1" source="san" target="u3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="Principe clé : deux Thunderbird n'ouvrent jamais le même fichier — le verrou (multilock) est supprimé par construction." style="text;html=1;fontSize=12;fontStyle=2;fontColor=#666666;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="585" width="900" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
