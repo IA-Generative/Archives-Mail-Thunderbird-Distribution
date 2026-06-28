@@ -56,11 +56,17 @@ retire du serveur — exactement comme au 1.2.
    **Rechercher des messages…** *(raccourci **Ctrl+Maj+F**)*.
    Sur les branches anciennes : **Édition → Rechercher → Rechercher des messages…**.
 2. En haut, vérifier le **dossier** ciblé (cocher *Inclure les sous-dossiers* si besoin).
-3. Régler le critère : **« Ancienneté en jours »** → **« est supérieure à »** →
-   saisir le seuil voulu (**90**, **180** ou **365**).
-   > *Variante par date fixe :* critère **« Date »** → **« est avant le »** → choisir
-   > la date butoir. Une date fixe ne « bouge » pas dans le temps, contrairement à
-   > l'ancienneté en jours.
+3. Régler le critère **(deux possibilités selon la version)** :
+   - **Versions récentes :** **« Ancienneté en jours »** → **« est supérieure à »** →
+     seuil voulu (**90**, **180** ou **365**).
+   - **Branches anciennes (31–45) :** le critère « Ancienneté en jours » **n'existe
+     pas** dans la fenêtre de recherche → utiliser **« Date »** → **« est avant le »**
+     → saisir la **date butoir** (= aujourd'hui moins 3, 6 ou 12 mois). Cette
+     variante par date **fonctionne sur toutes les versions**.
+
+   > 💡 La date fixe est figée : elle ne « bouge » pas dans le temps, contrairement
+   > à l'ancienneté en jours. Pour un archivage récurrent sur version ancienne,
+   > recalculer la date à chaque passage (ou utiliser la **méthode B**).
 4. Cliquer **Rechercher**.
 5. Dans la liste de résultats : **Ctrl+A** pour tout sélectionner, puis touche **A**
    (Archiver) — ou clic droit → **Archiver**.
