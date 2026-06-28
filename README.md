@@ -49,8 +49,9 @@ rien d'autre à installer (les scripts n'utilisent que des outils natifs Windows
    ⚠️ En IMAP, **télécharger d'abord les messages en entier** avant d'archiver.
 3. Archiver, au choix :
    - **Recommandé (automatique)** : **installer le module [AutoarchiveReloaded](https://addons.thunderbird.net/en-US/thunderbird/addon/autoarchivereloaded/)**
-     (☰ → *Modules complémentaires et thèmes* → rechercher **AutoarchiveReloaded** → *Ajouter*),
-     puis le régler sur **plus de 90/180/365 j au démarrage** → il archive seul en gardant le classement année-mois.
+     (☰ → *Modules complémentaires et thèmes* → rechercher **AutoarchiveReloaded** → *Ajouter*, **puis quitter et relancer Thunderbird**),
+     cocher les 4 options sur l'ancienneté voulue (ex. **180 j**) et l'archivage **manuel via Outils** (recommandé en IMAP)
+     → il archive en gardant le classement année-mois. *(Captures pas-à-pas : [MODE-OPERATOIRE.md § 1.2–1.3](MODE-OPERATOIRE.md).)*
    - **Manuel** : *Rechercher des messages* → critère **Ancienneté en jours** → Ctrl+A → touche **A**.
 4. **Fermer Thunderbird**, adapter `BOITE`/`DEST` en tête de
    `scripts/1-push-archives-vers-san.bat`, puis le lancer → l'archive part sur le SAN.
@@ -103,6 +104,7 @@ deux postes utilisateurs) avant tout déploiement réel. Détails et dépannage 
 | `Note-de-cadrage.docx` | Note de cadrage du projet                                               |
 | `scripts/`             | Scripts Windows `.bat` (push vers SAN, synchro cache local, tâche planifiée, install TB) |
 | `schemas/`             | Schémas sources détaillés (`drawio/` éditables, `png/` rendus) — les schémas Mermaid sont, eux, intégrés au Markdown |
+| `assets/`              | Captures d'écran de la procédure (TB 140+, AutoarchiveReloaded) — adresse e-mail **masquée** |
 | `private/`             | Sorties locales sensibles — **ignoré par git** (voir `private/README.md`) |
 
 ## Scripts (`scripts/`)

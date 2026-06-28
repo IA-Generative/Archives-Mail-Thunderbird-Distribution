@@ -106,8 +106,24 @@ flowchart TD
    (un sous-dossier par mois, ex. `Archives/2026/2026-06`) → **OK**.
 5. Fermer l'onglet (l'enregistrement est automatique).
 
+*Ouvrir les paramètres du compte — clic droit sur le compte → **Paramètres** (ou via le menu ☰ / ⚙️) :*
+
+![Clic droit sur le compte puis Paramètres](assets/02-compte-clic-droit-parametres.png)
+
+![Menu : Paramètres des comptes / Modules complémentaires](assets/01-menu-parametres-et-modules.png)
+
+*Onglet **Copies et dossiers** → section **Archives** : conserver les archives dans **Dossiers locaux**, puis **Options d'archivage…** :*
+
+![Copies et dossiers — section Archives](assets/03-copies-et-dossiers-archives.png)
+
+*Dans **Options d'archivage**, choisir **Archives mensuelles** :*
+
+![Options d'archivage : Archives mensuelles](assets/04-options-archivage-mensuel.png)
+
 **Vérifier :** sélectionner un vieux message → touche **A** → il doit apparaître sous
-**Dossiers locaux → Archives → 2026 → 2026-06** (année / année-mois).
+**Dossiers locaux → Archives → 2026 → 2026-06** (année / année-mois) :
+
+![Résultat : Archives classées par année puis par mois](assets/05-resultat-archives-annee-mois.png)
 
 > 🔧 *Cas avancé* — pour un compte **sans interface** (RSS) ou les *Dossiers locaux*
 > eux-mêmes (cas évoqué par le message du module) : régler le défaut global via
@@ -129,8 +145,8 @@ flowchart TD
 ### 1.3 Archiver — méthode recommandée : **automatique** (module AutoarchiveReloaded)
 
 Sur 140+, la méthode recommandée consiste à installer le module
-**`AutoarchiveReloaded`**, qui archive tout seul les messages au-delà d'une
-ancienneté, **à chaque démarrage** de Thunderbird. Il déclenche l'archivage
+**`AutoarchiveReloaded`**, qui archive les messages au-delà d'une ancienneté —
+soit **à la demande** (recommandé), soit au démarrage. Il déclenche l'archivage
 **natif** → il **conserve le classement année-mois**, indispensable à la synchro
 incrémentale.
 
@@ -154,12 +170,26 @@ incrémentale.
    *(ou ouvrir directement sa page :
    <https://addons.thunderbird.net/en-US/thunderbird/addon/autoarchivereloaded/>)*.
 3. Sur le résultat **AutoarchiveReloaded**, cliquer **« Ajouter à Thunderbird »**
-   → **« Ajouter »** → confirmer.
+   → **« Ajouter »** → confirmer les autorisations.
+
+   ![Confirmer l'ajout du module AutoarchiveReloaded](assets/08-confirmer-ajout-module.png)
+
    > *Alternative (hors-ligne / parc) :* depuis la page du module
    > [autoarchivereloaded](https://addons.thunderbird.net/en-US/thunderbird/addon/autoarchivereloaded/),
    > télécharger le fichier **`.xpi`**, puis dans Thunderbird **☰ → Modules
    > complémentaires → ⚙️ → Installer un module depuis un fichier…** et le sélectionner.
-4. **Redémarrer Thunderbird** si l'application le demande.
+   >
+   > ![Fichier .xpi téléchargé](assets/06-telecharger-xpi-autoarchivereloaded.png)
+   >
+   > ![Installer un module depuis un fichier](assets/07-installer-module-depuis-fichier.png)
+4. **⚠️ Quitter complètement Thunderbird, puis le relancer** après l'installation —
+   **même si la mise à jour ne le demande pas**. Le module n'est pleinement actif
+   (menu, bouton, archivage) **qu'après ce redémarrage**.
+
+   Le module apparaît ensuite dans **Extensions** (activé) ; la **clé** 🔧 (ou le
+   bouton **« … »**) ouvre ses **Options** :
+
+   ![AutoarchiveReloaded installé et activé](assets/09-extension-activee-options.png)
 
 > ⚠️ **Vérifier que `AutoarchiveReloaded` est compatible avec la version de
 > Thunderbird installée** (indiqué sur sa page
@@ -169,20 +199,30 @@ incrémentale.
 
 **Étape 2 — configurer le module :**
 5. **☰ → Modules complémentaires et thèmes → Extensions** → sur la ligne
-   **AutoarchiveReloaded**, cliquer le bouton **« … » → Options / Préférences**
+   **AutoarchiveReloaded**, cliquer la **clé** 🔧 (ou le bouton **« … » → Options**)
    *(ou cliquer le nom du module puis l'onglet **Préférences**)*.
-6. Sélectionner le **compte** concerné (ex. `boite.a.spam@…`), **pas** *Local Folders*.
-   Régler l'ancienneté **en jours** (3 mois = **90**, 6 mois = **180**, 1 an = **365**).
-   Le module distingue **quatre catégories** ; pour **vraiment vider** la boîte,
-   **cocher les quatre** avec **le même nombre de jours** :
-   - ✅ *Archive **unread** messages older than* … (non lus)
-   - ✅ *Archive messages **marked (star)** older than* … (suivis ⭐)
-   - ✅ *Archive **tagged** messages older than* … (étiquetés)
-   - ✅ *Archive **all other** messages older than* … (tout le reste)
+6. Ouvrir l'onglet du **compte** concerné (ex. `boite.a.spam@…`), **pas** *Local
+   Folders*. Régler l'ancienneté **en jours** (3 mois = **90**, 6 mois = **180**,
+   1 an = **365**). Le module distingue **quatre catégories** ; pour **vraiment
+   vider** la boîte, **cocher les quatre** avec **le même nombre de jours** (ex.
+   180), puis **Sauvegarder les paramètres** :
+   - ✅ **Archiver les messages non-lus** de plus de … *(unread)*
+   - ✅ **Archives les messages suivis (avec une étoile)** de plus de … *(starred ⭐)*
+   - ✅ **Archives les messages étiquetés (avec des mots-clés)** de plus de … *(tagged)*
+   - ✅ **Archiver tous les autres messages** de plus de … *(all other)*
+
+   ![Réglages par compte : les 4 options cochées à 180 jours](assets/11-autoarchive-compte-4-options-180j.png)
+
    > Pour **conserver dans la boîte** les messages **suivis (⭐)** et **non lus**
    > même anciens, laisser ces deux options **décochées** (la boîte ne sera alors
    > pas entièrement vidée).
-7. Activer le **déclenchement au démarrage** de Thunderbird (onglet **General**).
+7. Onglet **General** — choisir le **mode d'archivage**, puis **Sauvegarder** :
+   - **« manuellement seulement (via les outils) » — recommandé**, surtout en
+     **IMAP** : l'archivage au démarrage peut **dupliquer** des messages si la
+     connexion/serveur manque ;
+   - ou **« à chaque démarrage de Thunderbird »** (pratique en POP/local, déconseillé en IMAP).
+
+   ![Onglet General : mode d'archivage (manuel recommandé)](assets/10-autoarchive-general-mode.png)
 
 > ⚠️ **Rappel affiché par le module (important) :** AutoarchiveReloaded déclenche
 > l'archivage **natif** — il faut donc **aussi** avoir réglé Thunderbird sous
@@ -190,18 +230,20 @@ incrémentale.
 > C'est **ce** réglage qui crée le classement **par année-mois** ; sans lui, pas de
 > synchro incrémentale.
 
-**Étape 3 — lancer le module :**
-8. **Au démarrage de Thunderbird**, AutoarchiveReloaded s'exécute **tout seul** :
-   c'est son mode normal. Pour « le lancer », il suffit donc de **démarrer (ou
-   redémarrer) Thunderbird** une fois la configuration faite.
-9. **Pour l'exécuter à la demande** (sans attendre le prochain démarrage) : afficher
-   la barre de menus (**Alt**) → menu **Outils** → entrée **AutoarchiveReloaded**
-   *(p. ex. « Archiver maintenant »)*.
-   > Le libellé exact dépend de la version du module ; **s'il n'y a pas d'entrée de
-   > menu, un simple redémarrage de Thunderbird** déclenche l'archivage.
+**Étape 3 — lancer l'archivage :**
+8. **Mode manuel (recommandé) :** cliquer le bouton **« Archiver automatiquement
+   maintenant »**. S'il n'apparaît pas, l'ajouter une fois via **clic droit sur la
+   barre d'outils → Personnaliser**, puis glisser le bouton **Autoarchive** dans la
+   barre. Au clic, **confirmer** l'avertissement (une connexion IMAP doit être
+   disponible) :
+
+   ![Bouton Archiver automatiquement maintenant + avertissement IMAP](assets/12-archiver-maintenant.png)
+
+9. *(Si vous avez choisi « à chaque démarrage » à l'étape 7 : il suffit de
+   **redémarrer Thunderbird**.)*
 10. **Vérifier que ça a marché** : sous **Dossiers locaux → Archives**, les
     sous-dossiers **par année-mois** se remplissent et la boîte d'origine se vide des
-    messages au-delà du seuil.
+    messages au-delà du seuil *(cf. capture du 1.2)*.
 
 **Déploiement en parc (optionnel) :** pour **forcer** l'installation de
 `AutoarchiveReloaded` sur plusieurs postes d'un coup, utiliser
