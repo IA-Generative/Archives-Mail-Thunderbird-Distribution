@@ -85,6 +85,7 @@ deux postes utilisateurs) avant tout déploiement réel. Détails et dépannage 
 | `1-push-archives-vers-san.bat`      | Poste central : envoie les archives Thunderbird vers le SAN |
 | `2-sync-cache-local.bat`            | Poste utilisateur : recopie l'archive du SAN en cache local |
 | `3-installer-tache-planifiee.bat`   | Installe la synchro automatique (tâche planifiée Windows)   |
+| `aide-dates-archivage.bat`          | *(Aide)* Calcule les dates butoir « il y a 3/6/12 mois » pour l'archivage manuel (TB 31–45) |
 
 ## Hygiène du dépôt
 

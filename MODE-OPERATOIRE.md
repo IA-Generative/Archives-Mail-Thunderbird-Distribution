@@ -67,6 +67,11 @@ retire du serveur — exactement comme au 1.2.
    > 💡 La date fixe est figée : elle ne « bouge » pas dans le temps, contrairement
    > à l'ancienneté en jours. Pour un archivage récurrent sur version ancienne,
    > recalculer la date à chaque passage (ou utiliser la **méthode B**).
+   >
+   > 🛠️ Pour ne pas calculer à la main, double-cliquer sur
+   > **`scripts/aide-dates-archivage.bat`** : il affiche les dates butoir
+   > « il y a 3 / 6 / 12 mois » à recopier dans le champ « est avant le ».
+   > *(Il n'archive rien — il calcule seulement les dates.)*
 4. Cliquer **Rechercher**.
 5. Dans la liste de résultats : **Ctrl+A** pour tout sélectionner, puis touche **A**
    (Archiver) — ou clic droit → **Archiver**.
