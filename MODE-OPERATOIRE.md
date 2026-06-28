@@ -41,7 +41,52 @@
 
 > 💡 Pour récupérer la place côté serveur, pensez à vider/compacter la Corbeille du compte après l'archivage.
 
-### 1.3 Envoyer l'archive sur le SAN
+### 1.3 Sélectionner précisément les messages de plus de 3, 6 ou 12 mois
+
+Plutôt que de sélectionner « à l'œil », on cible les messages par **ancienneté**.
+L'action **Archiver** (touche **A**) range ensuite ces messages dans
+**Dossiers locaux → Archives** par année-mois (réglages de l'étape 1.1) et les
+retire du serveur — exactement comme au 1.2.
+
+**Seuils de référence :** 3 mois ≈ **90 jours** · 6 mois ≈ **180 jours** · 1 an = **365 jours**.
+
+#### Méthode A — Recherche par ancienneté *(recommandée, précise)*
+
+1. **Clic droit** sur le dossier à traiter (ex. *Courrier entrant*) →
+   **Rechercher des messages…** *(raccourci **Ctrl+Maj+F**)*.
+   Sur les branches anciennes : **Édition → Rechercher → Rechercher des messages…**.
+2. En haut, vérifier le **dossier** ciblé (cocher *Inclure les sous-dossiers* si besoin).
+3. Régler le critère : **« Ancienneté en jours »** → **« est supérieure à »** →
+   saisir le seuil voulu (**90**, **180** ou **365**).
+   > *Variante par date fixe :* critère **« Date »** → **« est avant le »** → choisir
+   > la date butoir. Une date fixe ne « bouge » pas dans le temps, contrairement à
+   > l'ancienneté en jours.
+4. Cliquer **Rechercher**.
+5. Dans la liste de résultats : **Ctrl+A** pour tout sélectionner, puis touche **A**
+   (Archiver) — ou clic droit → **Archiver**.
+
+#### Méthode B — Tri par date dans la liste *(sans recherche)*
+
+1. Dans le dossier, cliquer sur l'en-tête de colonne **Date** pour trier du plus
+   récent au plus ancien.
+2. Repérer la limite (3 / 6 / 12 mois), cliquer le **1er** message à archiver,
+   puis **Maj + clic** sur le **dernier** (le plus ancien) pour sélectionner toute la plage.
+3. Touche **A** (Archiver).
+
+#### Pour répéter l'opération (archivage récurrent)
+
+Dans la fenêtre de recherche (méthode A), le bouton
+**« Enregistrer comme dossier de recherche »** crée un **dossier virtuel**
+(ex. *« Plus de 6 mois »*) qui se met à jour tout seul au fil du temps. Il suffit
+d'y revenir périodiquement et de faire **Ctrl+A → A**.
+
+> ⚠️ **Avant d'archiver, deux rappels :**
+> - En **IMAP**, s'assurer que les messages sont **téléchargés en entier** (voir
+>   l'avertissement du 1.2), sinon seuls les en-têtes sont archivés → perte de contenu.
+> - L'archivage doit être réglé en **mensuel** (étape 1.1) pour bénéficier de la
+>   synchro incrémentale (seul le mois en cours retransite ensuite).
+
+### 1.4 Envoyer l'archive sur le SAN
 
 1. **Fermer complètement Thunderbird** (obligatoire : sinon les fichiers sont verrouillés).
 2. Ouvrir le fichier **`1-push-archives-vers-san.bat`** avec **clic droit → Modifier**, et renseigner en haut :
