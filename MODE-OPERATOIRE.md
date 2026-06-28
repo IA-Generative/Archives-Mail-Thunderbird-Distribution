@@ -153,9 +153,24 @@ incrémentale.
 5. **☰ → Modules complémentaires et thèmes → Extensions** → sur la ligne
    **AutoarchiveReloaded**, cliquer le bouton **« … » → Options / Préférences**
    *(ou cliquer le nom du module puis l'onglet **Préférences**)*.
-6. Régler l'ancienneté : archiver les messages de plus de **90 / 180 / 365 jours**
-   (au choix).
-7. Activer le **déclenchement au démarrage** de Thunderbird.
+6. Sélectionner le **compte** concerné (ex. `boite.a.spam@…`), **pas** *Local Folders*.
+   Régler l'ancienneté **en jours** (3 mois = **90**, 6 mois = **180**, 1 an = **365**).
+   Le module distingue **quatre catégories** ; pour **vraiment vider** la boîte,
+   **cocher les quatre** avec **le même nombre de jours** :
+   - ✅ *Archive **unread** messages older than* … (non lus)
+   - ✅ *Archive messages **marked (star)** older than* … (suivis ⭐)
+   - ✅ *Archive **tagged** messages older than* … (étiquetés)
+   - ✅ *Archive **all other** messages older than* … (tout le reste)
+   > Pour **conserver dans la boîte** les messages **suivis (⭐)** et **non lus**
+   > même anciens, laisser ces deux options **décochées** (la boîte ne sera alors
+   > pas entièrement vidée).
+7. Activer le **déclenchement au démarrage** de Thunderbird (onglet **General**).
+
+> ⚠️ **Rappel affiché par le module (important) :** AutoarchiveReloaded déclenche
+> l'archivage **natif** — il faut donc **aussi** avoir réglé Thunderbird sous
+> **Copies et dossiers → Options d'archivage → Archives mensuelles** (étape **1.2**).
+> C'est **ce** réglage qui crée le classement **par année-mois** ; sans lui, pas de
+> synchro incrémentale.
 
 **Étape 3 — lancer le module :**
 8. **Au démarrage de Thunderbird**, AutoarchiveReloaded s'exécute **tout seul** :
