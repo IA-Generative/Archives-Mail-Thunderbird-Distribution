@@ -97,6 +97,40 @@ d'y revenir périodiquement et de faire **Ctrl+A → A**.
 > - L'archivage doit être réglé en **mensuel** (étape 1.1) pour bénéficier de la
 >   synchro incrémentale (seul le mois en cours retransite ensuite).
 
+#### Thunderbird 140+ — la séquence complète (interface moderne)
+
+Sur les versions récentes, tout passe par le menu **☰** (en haut à droite) et la
+recherche native. Le critère **« Ancienneté en jours »** y est bien présent.
+
+**a) Régler l'archivage mensuel** *(une fois par compte — détail en 1.1)*
+1. **☰ → Paramètres des comptes** (ou clic droit sur le compte → **Paramètres**).
+2. Compte concerné → **Copies et dossiers** → section **Archives** :
+   cocher **« Conserver les archives… dans »** → **Dossiers locaux**.
+3. **Options d'archivage… → « Archives mensuelles »** → **OK**.
+   *(IMAP : ☰ → Paramètres des comptes → **Synchronisation et espace disque** →
+   cocher « Conserver les messages… sur cet ordinateur », laisser synchroniser
+   **avant** d'archiver, sinon perte de contenu.)*
+
+**b) Sélectionner les messages par ancienneté**
+4. **Clic droit** sur le dossier (ex. *Courrier entrant*) → **Rechercher des messages…**
+   *(ou **Ctrl+Maj+F**)*.
+5. Vérifier le **dossier** ciblé (cocher *Inclure les sous-dossiers* au besoin).
+6. Critère : **« Ancienneté en jours » → « est supérieure à » → 90 / 180 / 365**.
+   *(ou **« Date » → « est avant le »** si vous préférez une date fixe.)*
+7. **Rechercher**.
+
+**c) Archiver**
+8. Dans les résultats : **Ctrl+A** (tout sélectionner) → touche **A**
+   *(ou clic droit → **Archiver**, ou le bouton **Archiver** de la barre de message)*.
+9. Les messages partent dans **Dossiers locaux → Archives**, classés **par année-mois**,
+   et **quittent le serveur**.
+
+**d) Envoyer sur le SAN** → **fermer Thunderbird**, puis suivre **1.4**.
+
+> 💡 Pour rendre cette opération **automatique** sur un poste 140+, voir **1.5**
+> (module d'auto-archivage). Le module appelle ce même archivage natif : le
+> classement année-mois est donc préservé.
+
 ### 1.4 Envoyer l'archive sur le SAN
 
 1. **Fermer complètement Thunderbird** (obligatoire : sinon les fichiers sont verrouillés).
