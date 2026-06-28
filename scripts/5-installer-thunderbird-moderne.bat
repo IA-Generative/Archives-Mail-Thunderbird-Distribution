@@ -50,9 +50,11 @@ echo "Executer en tant qu'administrateur".
 echo.
 echo === ETAPE SUIVANTE : module d'archivage automatique ===
 echo  1) Ouvrir Thunderbird, menu Modules complementaires et themes.
-echo  2) Rechercher AutoarchiveReloaded (ou un module equivalent maintenu),
-echo     VERIFIER la compatibilite avec la version installee, puis installer.
-echo  3) Configurer : archiver les messages de plus de 90 / 180 / 365 jours,
+echo  2) INSTALLER le module AutoarchiveReloaded (obligatoire pour l'auto-archivage) :
+echo     - rechercher "AutoarchiveReloaded" puis Ajouter, ou ouvrir la page :
+echo       https://addons.thunderbird.net/en-US/thunderbird/addon/autoarchivereloaded/
+echo     - VERIFIER d'abord la compatibilite avec la version installee.
+echo  3) Configurer le module : archiver les messages de plus de 90 / 180 / 365 jours,
 echo     et activer le declenchement au demarrage de Thunderbird.
 echo  4) Verifier que l'archivage est MENSUEL (Parametres des comptes,
 echo     Copies et dossiers, Options d'archivage).

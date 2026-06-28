@@ -1,7 +1,7 @@
 {
   "//": "MODELE de strategie d'entreprise Thunderbird pour FORCER l'installation du module d'auto-archivage (deploiement en parc).",
   "//_emplacement": "Renommer ce fichier en 'policies.json' et le copier dans : C:\\Program Files\\Mozilla Thunderbird\\distribution\\policies.json",
-  "//_obtenir_l_url": "Sur https://addons.thunderbird.net , ouvrir la page du module (ex. AutoarchiveReloaded), recuperer son ID et l'URL du fichier .xpi, puis remplacer les deux valeurs ci-dessous. Verifier d'abord que le module est compatible avec la version de Thunderbird installee.",
+  "//_obtenir_l_url": "Page du module AutoarchiveReloaded : https://addons.thunderbird.net/en-US/thunderbird/addon/autoarchivereloaded/ . Y recuperer l'ID du module et l'URL du fichier .xpi (lien de telechargement), puis remplacer les deux valeurs ci-dessous. Verifier d'abord la compatibilite avec la version de Thunderbird installee.",
   "//_note": "Les cles commencant par // sont ignorees par Thunderbird : ce sont des commentaires. Supprimez-les si vous preferez un fichier minimal.",
   "policies": {
     "ExtensionSettings": {
