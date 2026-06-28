@@ -92,10 +92,28 @@ flowchart TD
 
 ### 1.2 Régler l'archivage mensuel (une fois par compte)
 
-1. **☰ → Paramètres des comptes** (ou clic droit sur le compte → **Paramètres**).
-2. Compte concerné → **Copies et dossiers** → section **Archives**.
-3. Cocher **« Conserver les archives de messages dans »** → **Dossiers locaux**.
-4. **Options d'archivage… → « Archives mensuelles »** (un dossier par mois) → **OK**.
+> Indispensable : c'est **ce** réglage **natif de Thunderbird** (et non le module)
+> qui range les archives **par année-mois**. AutoarchiveReloaded ne fait que
+> déclencher cet archivage natif.
+
+1. **☰ (haut-droite) → Paramètres des comptes** *(ou clic droit sur le compte
+   `boite.a.spam@…` dans la colonne de gauche → **Paramètres**)*. Un **onglet** s'ouvre.
+2. Dans la colonne de gauche de l'onglet, sous le compte → **Copies et dossiers** ;
+   **faire défiler tout en bas** jusqu'à la section **Archives**.
+3. Cocher **« Conserver les archives de messages dans : »** → choisir **Dossiers
+   locaux** *(c'est là que les scripts vont lire : `Local Folders\Archives`)*.
+4. Bouton **« Options d'archivage… »** → choisir **« Archives mensuelles »**
+   (un sous-dossier par mois, ex. `Archives/2026/2026-06`) → **OK**.
+5. Fermer l'onglet (l'enregistrement est automatique).
+
+**Vérifier :** sélectionner un vieux message → touche **A** → il doit apparaître sous
+**Dossiers locaux → Archives → 2026 → 2026-06** (année / année-mois).
+
+> 🔧 *Cas avancé* — pour un compte **sans interface** (RSS) ou les *Dossiers locaux*
+> eux-mêmes (cas évoqué par le message du module) : régler le défaut global via
+> **☰ → Paramètres → Général → (tout en bas) Éditeur de configuration…** :
+> `mail.identity.default.archive_granularity` = **2** (0 = dossier unique, 1 = annuel,
+> **2 = mensuel**) et `mail.identity.default.archive_keep_folder_structure` = **true**.
 
 > ⚠️ **Boîte en IMAP : télécharger d'abord les messages en entier.** Sinon
 > Thunderbird n'archive que les **en-têtes** et les messages quittent le serveur
