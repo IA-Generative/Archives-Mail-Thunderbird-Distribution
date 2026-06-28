@@ -28,6 +28,11 @@ d'autre à installer (les scripts n'utilisent que des outils natifs Windows).
 3. **Fermer Thunderbird**, adapter `BOITE`/`DEST` en tête de
    `scripts/1-push-archives-vers-san.bat`, puis le lancer → l'archive part sur le SAN.
 
+> 💡 *Option — automatiser l'archivage :* sur un **Thunderbird moderne (ESR 140+)**,
+> le module *AutoarchiveReloaded* archive par ancienneté tout en gardant le classement
+> année-mois. Script : `scripts/5-installer-thunderbird-moderne.bat` — voir
+> [MODE-OPERATOIRE.md § 1.5](MODE-OPERATOIRE.md).
+
 **2. Poste utilisateur (consultation en lecture seule)** — voir
 [MODE-OPERATOIRE.md § Partie 2](MODE-OPERATOIRE.md#partie-2--poste-utilisateur-consultation-en-lecture-seule)
 1. Copier `scripts/2-sync-cache-local.bat` et `scripts/3-installer-tache-planifiee.bat`
@@ -64,6 +69,9 @@ deux postes utilisateurs) avant tout déploiement réel. Détails et dépannage 
       vérifier le déclenchement (à 07h30 et/ou à l'ouverture de session) via le journal.
 - [ ] **Multi-versions** : si le parc mélange plusieurs versions de Thunderbird,
       vérifier l'affichage de l'archive sur au moins une version ancienne et une récente.
+- [ ] **Archivage automatisé** *(si option 1.5)* : après installation du module
+      sur un TB moderne, vérifier qu'au démarrage les messages au-delà du seuil sont
+      bien archivés **par année-mois** (et non dans un dossier unique).
 
 ## Structure du dépôt
 
@@ -86,6 +94,8 @@ deux postes utilisateurs) avant tout déploiement réel. Détails et dépannage 
 | `2-sync-cache-local.bat`            | Poste utilisateur : recopie l'archive du SAN en cache local |
 | `3-installer-tache-planifiee.bat`   | Installe la synchro automatique (tâche planifiée Windows)   |
 | `aide-dates-archivage.bat`          | *(Aide)* Calcule les dates butoir « il y a 3/6/12 mois » pour l'archivage manuel (TB 31–45) |
+| `5-installer-thunderbird-moderne.bat` | *(Option)* Installe Thunderbird ESR moderne (silencieux) pour automatiser l'archivage via un module |
+| `policies.json.exemple`             | *(Option)* Modèle de stratégie d'entreprise forçant l'installation du module d'auto-archivage |
 
 ## Hygiène du dépôt
 

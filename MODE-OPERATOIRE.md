@@ -108,6 +108,38 @@ d'y revenir périodiquement et de faire **Ctrl+A → A**.
 
 > Pour une nouvelle boîte : on recommence en 1.1 (changer `BOITE`). On peut renommer le dossier *Archives* entre deux boîtes, ou utiliser un profil Thunderbird distinct par boîte.
 
+### 1.5 Option : automatiser l'archivage (Thunderbird moderne + module)
+
+Sur le **poste central**, si vous voulez **automatiser** l'archivage par
+ancienneté plutôt que la sélection manuelle (1.3), installez une version
+**moderne** de Thunderbird et un **module d'auto-archivage**.
+
+- **Version conseillée : Thunderbird ESR (canal long terme), branche 140 ou
+  ultérieure.** L'ESR est stable, mis à jour ~1×/an, et pilotable par stratégie
+  d'entreprise (`policies.json`).
+  > ⚠️ La **31.7.0 ne sait pas** automatiser l'archivage : réservez-la aux postes
+  > de **consultation** (lecture seule). Cette option concerne le **poste central**.
+- **Module : `AutoarchiveReloaded`** (ou équivalent maintenu). Il déclenche
+  l'archivage **natif** de Thunderbird → il **conserve le classement année-mois**,
+  indispensable à la synchro incrémentale. Réglage : archiver au-delà de
+  **90 / 180 / 365 jours**, déclenchement **au démarrage**.
+  > ⚠️ **Vérifier la compatibilité du module avec la version installée** sur
+  > [addons.thunderbird.net](https://addons.thunderbird.net) avant tout déploiement :
+  > la maintenance des modules varie d'une branche à l'autre.
+
+**Script (poste central, à lancer en administrateur) :**
+`scripts/5-installer-thunderbird-moderne.bat` télécharge et installe Thunderbird
+ESR en silencieux, puis rappelle la marche à suivre pour le module.
+
+**Déploiement en parc :** `scripts/policies.json.exemple` est un modèle de stratégie
+d'entreprise qui **force** l'installation du module (à copier, une fois renseigné,
+en `…\Mozilla Thunderbird\distribution\policies.json`).
+
+> ⚠️ Même automatisé, l'archivage doit se terminer **avant** le push SAN
+> (Thunderbird **fermé**). Un enchaînement entièrement non surveillé
+> (archive auto → fermeture → robocopy) demande une orchestration dédiée ;
+> par défaut, gardez le push (1.4) comme geste contrôlé.
+
 ---
 
 ## Partie 2 — Poste utilisateur (consultation en lecture seule)
