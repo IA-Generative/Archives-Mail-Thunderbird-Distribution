@@ -35,6 +35,9 @@ desktop.ini
 .idea/
 .vscode/*.local
 *.swp
+# Fichiers verrou / temporaires Office (Word, LibreOffice)
+~$*
+.~lock.*#
 
 # --- Journaux produits par les scripts (.bat) ---
 *.log
