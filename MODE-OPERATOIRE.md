@@ -119,6 +119,10 @@ ancienneté plutôt que la sélection manuelle (1.3), installez une version
   d'entreprise (`policies.json`).
   > ⚠️ La **31.7.0 ne sait pas** automatiser l'archivage : réservez-la aux postes
   > de **consultation** (lecture seule). Cette option concerne le **poste central**.
+  > Si ce poste a **déjà** une ancienne version, sachez que **deux versions de
+  > Thunderbird ne tournent pas ensemble** par défaut (voir *Notes techniques →
+  > « Deux versions … sur un même poste »*) : le plus simple est de migrer le poste
+  > central vers la version moderne.
 - **Module : `AutoarchiveReloaded`** (ou équivalent maintenu). Il déclenche
   l'archivage **natif** de Thunderbird → il **conserve le classement année-mois**,
   indispensable à la synchro incrémentale. Réglage : archiver au-delà de
@@ -183,5 +187,19 @@ en `…\Mozilla Thunderbird\distribution\policies.json`).
 - **Aucun verrou inter-postes** : chaque poste lit sa propre copie locale et possède son propre index. Le format mbox de Thunderbird ne supporte pas l'accès concurrent à un même fichier ; cette architecture l'évite totalement.
 - **Outils utilisés** : tous natifs Windows (`robocopy`, `attrib`, `schtasks`). Rien à installer côté postes utilisateurs.
 - **Compatibilité des versions** : le dispositif fonctionne de **Thunderbird 31.7.0 jusqu'aux branches actuelles (140 et au-delà)**. Le format mbox, l'arborescence du profil et l'archivage natif par année-mois sont identiques sur toute cette plage, et **mbox reste le format de stockage par défaut** sur les versions récentes. Un **parc mélangeant plusieurs versions est supporté** (chaque poste lit sa propre copie locale). L'**obsolescence** des versions anciennes est **connue et assumée** : elle n'affecte pas le fonctionnement du dispositif.
+- **Deux versions de Thunderbird sur un même poste** : par défaut, **elles ne
+  tournent pas en même temps**. Lancer Thunderbird alors qu'une instance est déjà
+  ouverte ne fait que **réactiver la fenêtre existante** (mécanisme « instance
+  unique »). Et **deux versions ne doivent jamais partager le même profil** : une
+  version récente met le profil à niveau, et une version plus ancienne peut alors
+  le **refuser ou le corrompre** (protection anti-rétrogradation).
+  *Astuce pour les faire cohabiter (test / migration uniquement)* : installer chaque
+  version dans **son propre dossier**, créer **un profil distinct par version**
+  (gestionnaire de profils : `thunderbird.exe -P`), puis lancer chacune avec l'option
+  **`-no-remote`** et son profil dédié — par exemple :
+  `"C:\Program Files\Mozilla Thunderbird\thunderbird.exe" -no-remote -P "TB140"`.
+  > En usage normal, **inutile** : les postes de consultation (31.x) et le poste
+  > central (ESR moderne, voir 1.5) sont des **machines différentes**. Le cas ne se
+  > pose que si l'on veut les deux **sur le même poste** (ex. tester avant de migrer).
 - **Équivalences d'interface** : sur les branches anciennes (31–45), utiliser la barre de menus **Outils → Paramètres des comptes** ; l'onglet de téléchargement IMAP hors-ligne peut s'appeler **« Synchronisation et stockage »** (au lieu de « …espace disque »). Sur les versions récentes, passer par **☰ → Paramètres**. Réglages et emplacements de fichiers restent identiques.
 - **Add-on** : ImportExportTools **NG** exige TB 68+ ; il n'est **pas requis** ici (archivage natif). Sur les branches anciennes, c'est l'add-on *ImportExportTools « classique »* qui conviendrait, si jamais besoin.
