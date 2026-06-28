@@ -55,6 +55,34 @@ flowchart TD
 
 ---
 
+## Configurer les scripts (`.bat`) — une seule fois par poste
+
+Tous les scripts sont dans le dossier **`scripts/`**. Avant de lancer un script,
+on adapte les **valeurs en haut du fichier** (les lignes `set "NOM=valeur"`).
+
+**Comment éditer un `.bat`** : **clic droit → Modifier** (ouvre le Bloc-notes),
+changer les valeurs, **enregistrer**. Pour l'exécuter : **double-cliquer** dessus.
+
+> Les scripts du dépôt ne contiennent que des **exemples** (`\\SERVEUR-SAN`,
+> `prenom.nom`). Adaptez-les à votre environnement — et **ne committez pas** vos
+> vraies valeurs (laissez les placeholders dans Git, modifiez la copie du poste).
+
+| Script | Sur quel poste (étape) | Variable à adapter | Rôle / exemple |
+|---|---|---|---|
+| `1-push-archives-vers-san.bat` | Central — **1.5** | `BOITE` | identifiant de la boîte = son sous-dossier sur le SAN — ex. `prenom.nom` |
+| | | `DEST` | dossier de destination sur le SAN — ex. `\\SERVEUR-SAN\Partage\Archives-Mail\%BOITE%` |
+| `2-sync-cache-local.bat` | Utilisateur — **2.1** | `SOURCE` | sous-dossier SAN de la boîte à consulter — ex. `\\SERVEUR-SAN\Partage\Archives-Mail\prenom.nom` |
+| | | `NOM_DOSSIER` | nom affiché sous *Dossiers locaux* — défaut `Archives-Partagees` |
+| `3-installer-tache-planifiee.bat` | Utilisateur — **2.1** | *(aucune)* | à placer **dans le même dossier** que `2-sync-cache-local.bat` |
+| `5-installer-thunderbird-moderne.bat` | Central — **1.1** | *(optionnel)* `LANGUE`, `PRODUCT` | langue (`fr`) et canal (`esr`) — défauts adaptés, en général rien à changer |
+| `aide-dates-archivage.bat` | Central — **1.4** *(vieilles versions)* | *(aucune)* | affiche seulement les dates butoir, n'archive rien |
+
+> 💡 `DEST` réutilise `%BOITE%` : changez **`BOITE`** et `DEST` suit
+> automatiquement. Les chemins SAN sont en **UNC** (`\\serveur\partage\…`) :
+> vérifiez l'accès (écriture côté central, lecture côté utilisateurs) avant de lancer.
+
+---
+
 ## Partie 1 — Poste central « mail » (archivage + envoi sur le SAN)
 
 > À faire par la personne en charge de l'archivage, **une boîte à la fois**, sur un poste en **Thunderbird 140+**.
@@ -282,9 +310,8 @@ Pour garder la main, ou pour un traitement ponctuel sans module.
 ### 1.5 Envoyer l'archive sur le SAN
 
 1. **Fermer complètement Thunderbird** (obligatoire : sinon les fichiers sont verrouillés).
-2. Ouvrir **`scripts/1-push-archives-vers-san.bat`** (**clic droit → Modifier**) et renseigner en haut :
-   - `BOITE` = identifiant de la boîte (ex. `prenom.nom`) — ce sera son dossier sur le SAN ;
-   - `DEST` = chemin du partage SAN (ex. `\\SERVEUR-SAN\Partage\Archives-Mail\%BOITE%`).
+2. Adapter **`BOITE`** et **`DEST`** en tête de **`scripts/1-push-archives-vers-san.bat`**
+   (voir [Configurer les scripts](#configurer-les-scripts-bat--une-seule-fois-par-poste)).
 3. Enregistrer, puis **double-cliquer** sur le script.
 4. Il copie l'archive vers le SAN et écrit un journal `_journal-push.log` dans le dossier de destination.
 
@@ -301,9 +328,8 @@ Pour garder la main, ou pour un traitement ponctuel sans module.
 ### 2.1 Mise en place (une seule fois par poste)
 
 1. Copier les fichiers **`scripts/2-sync-cache-local.bat`** et **`scripts/3-installer-tache-planifiee.bat`** dans un même dossier local, par exemple `C:\Outils\`.
-2. Ouvrir **`2-sync-cache-local.bat`** avec **clic droit → Modifier** et renseigner en haut :
-   - `SOURCE` = sous-dossier SAN de la boîte à consulter (ex. `\\SERVEUR-SAN\Partage\Archives-Mail\prenom.nom`) ;
-   - `NOM_DOSSIER` = nom affiché dans Thunderbird (par défaut `Archives-Partagees`).
+2. Adapter **`SOURCE`** et **`NOM_DOSSIER`** en tête de **`2-sync-cache-local.bat`**
+   (voir [Configurer les scripts](#configurer-les-scripts-bat--une-seule-fois-par-poste)).
 3. Enregistrer.
 4. Double-cliquer sur **`3-installer-tache-planifiee.bat`** : la synchro devient automatique (chaque jour + à l'ouverture de session).
 5. Lancer une 1re synchro tout de suite en double-cliquant sur **`2-sync-cache-local.bat`** (la 1re copie peut être longue selon la taille).

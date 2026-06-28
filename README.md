@@ -111,6 +111,7 @@ deux postes utilisateurs) avant tout déploiement réel. Détails et dépannage 
 
 > Les scripts contiennent des **placeholders** à adapter une seule fois
 > (`\\SERVEUR-SAN\...`, `prenom.nom`). Aucune valeur réelle n'est versionnée.
+> Détail des variables : [Configurer les scripts](MODE-OPERATOIRE.md#configurer-les-scripts-bat--une-seule-fois-par-poste).
 
 | Script                              | Rôle                                                       |
 |-------------------------------------|------------------------------------------------------------|
